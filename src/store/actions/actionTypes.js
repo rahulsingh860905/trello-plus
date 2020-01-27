@@ -1,0 +1,17 @@
+export const FETCH_LIST = "FETCH_LIST";
+export const FETCH_LIST_COMMIT = "FETCH_LIST_COMMIT";
+
+export const REORDER_LIST = "REORDER_LIST";
+export const REORDER_LIST_COMMIT = "REORDER_LIST_COMMIT";
+
+export const DELETE_LIST = "DELETE_LIST";
+export const DELETE_LIST_COMMIT = "DELETE_LIST_COMMIT";
+
+export const ADD_CARD = "ADD_CARD";
+export const ADD_CARD_COMMIT = "ADD_CARD_COMMIT";
+
+export const EDIT_CARD = "EDIT_CARD";
+export const EDIT_CARD_COMMIT = "EDIT_CARD_COMMIT";
+
+export const DELETE_CARD = "DELETE_CARD";
+export const DELETE_CARD_COMMIT = "DELETE_CARD_COMMIT";
