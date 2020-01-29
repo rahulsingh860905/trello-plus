@@ -3,10 +3,13 @@ import Cards from "./Cards/Cards";
 import { Droppable } from "react-beautiful-dnd";
 
 class List extends Component {
-  state = {
-    enableAdd: false,
-    cardTitleValue: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      enableAdd: false,
+      cardTitleValue: ""
+    };
+  }
 
   inputChangeHandler = e => {
     if (e.target.value.length > 0) {
@@ -19,7 +22,6 @@ class List extends Component {
   addCard = e => {
     const { cardTitleValue } = this.state;
     this.props.addCard(this.props.type, { title: cardTitleValue });
-    e.preventDefault();
     this.setState({ enableAdd: false, cardTitleValue: "" });
   };
 
@@ -68,6 +70,7 @@ class List extends Component {
       </div>
     );
   }
+
   componentDidMount() {
     this.props.fetchList(this.props.type);
   }

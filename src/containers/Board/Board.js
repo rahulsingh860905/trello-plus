@@ -10,9 +10,12 @@ import axios from "../../config/axios-config";
 import ErrorHandler from "../../hoc/ErrorHandler/ErrorHandler";
 
 export class Board extends Component {
-  state = {
-    listTypes: listConfig.listTypes
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      listTypes: listConfig.listTypes
+    };
+  }
 
   cardDnDHandler = ({ draggableId, source, destination }) => {
     if (!destination) {

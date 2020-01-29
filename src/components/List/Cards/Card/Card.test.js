@@ -23,11 +23,11 @@ describe("Card Component", () => {
     expect(component.state("cardTitleValue")).toEqual("A");
   });
 
-  // it("should check state change when edit icon is clicked", () => {
-  //   const editIcon = component.find(".fa-edit");
-  //   editIcon.props().onClick();
-  //   expect(component.state("editable")).toEqual(true);
-  // });
+  it("should check state change when edit icon is clicked", () => {
+    const editIcon = component.find(".fa-edit");
+    editIcon.props().onClick();
+    expect(component.state("editable")).toEqual(true);
+  });
 
   it("should check state change when input is changed", () => {
     const editIcon = component.find(".list-item-field");

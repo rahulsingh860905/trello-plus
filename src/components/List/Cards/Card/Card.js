@@ -4,24 +4,25 @@ import classNames from "classnames";
 class Card extends Component {
   constructor(props) {
     super(props);
-    this.inputRef = React.createRef();
+    this.state = {
+      editable: false,
+      enableSave: true,
+      cardTitleValue: this.props.todo.title
+    };
+    this.inputFocus = this.createFocus();
   }
 
-  state = {
-    editable: false,
-    enableSave: true,
-    cardTitleValue: this.props.todo.title
+  createFocus = () => {
+    const ref = React.createRef();
+    const setFocus = () => {
+      ref.current && ref.current.focus();
+    };
+    return { setFocus, ref };
   };
 
   editCard = () => {
     this.setState({ editable: true });
   };
-
-  componentDidUpdate() {
-    if (this.state.editable) {
-      this.inputRef.current.focus();
-    }
-  }
 
   updateCard = () => {
     const { cardTitleValue } = this.state;
@@ -53,7 +54,7 @@ class Card extends Component {
         <div className="list-name-block">
           <label>{cardTitleValue}</label>
           <input
-            ref={this.inputRef}
+            ref={this.inputFocus.ref}
             className="list-item-field"
             value={cardTitleValue}
             onChange={this.inputChangeHandler}
@@ -73,6 +74,12 @@ class Card extends Component {
         </div>
       </div>
     );
+  }
+
+  componentDidUpdate() {
+    if (this.state.editable) {
+      this.inputFocus.setFocus();
+    }
   }
 }
 
